@@ -8,10 +8,10 @@ class MapController extends Controller
 {
     public function map()
     {
-        $number = mt_rand(0, 100);
+        $coords = "65.0121° N, 25.4651° E";
 
 				return $this->render('map.html.twig', array(
-	            'number' => $number,
+	            'coords' => $coords,
 	        ));
     }
 }

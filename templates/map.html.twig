@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
+		
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
+        <title>Google Map Services</title>
+				{% block stylesheets %}
+            <link href="{{ asset('assets/css/map.css') }}" rel="stylesheet" />
+        {% endblock %}    </head>
     <body>
-			<h1>Your lucky number is {{ number }}</h1>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+			<h1>Your in oulu {{ coords }}</h1>
+			
+			
+			{% block javascripts %}
+					<script src="{{ asset('assets/js/map.js') }}"></script>
+			{% endblock %}
     </body>
-</html>
+		</html>
