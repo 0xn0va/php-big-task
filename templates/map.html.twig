@@ -10,10 +10,20 @@
 	<body>
 		<div id="map"></div>
 		
-		<h3>Locate Address</h3>
-		<input id="addr" type="text">
-		<button class="btn" id="btnCoord" type="button"><span>Find</span></button>
-		<div id="coordInfo"></div>			
+		<h3>Locate First Address</h3>
+		<input id="addrA" type="text">
+		<button class="btn" id="btnCoordA" type="button"><span>Find</span></button>
+		<div id="coordAInfo"></div>	
+		
+		<h3>Locate Second Address</h3>
+		<input id="addrB" type="text">
+		<button class="btn" id="btnCoordB" type="button"><span>Find</span></button>
+		<div id="coordBInfo"></div>	
+		
+		<h3>Calculate distance and Navigate</h3>
+		<button class="btn" id="btnDistance" type="button"><span>Go!</span></button>
+		<br />
+		Distance: <div id="distKm"></div>		
 		
 		<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJApn1weBvRmXgpTTvhkpbPrfUiXPkM8&callback=showMap&libraries=geometry" async defer>

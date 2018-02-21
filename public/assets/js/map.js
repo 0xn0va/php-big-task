@@ -1,5 +1,13 @@
-var btnCoord = document.getElementById('btnCoord');
-btnCoord.addEventListener('click', fetchUserAddr);
+var btnCoordA = document.getElementById('btnCoordA');
+btnCoordA.addEventListener('click', fetchUserAddr);
+
+var btnCoordB = document.getElementById('btnCoord');
+btnCoordB.addEventListener('click', fetchUserAddr);
+
+var btnDistance = document.getElementById('btnDistance');
+btnDistance.addEventListener('click', calcDist);
+var pointA = null;
+var pointB = null;
 
 function showMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
@@ -60,7 +68,7 @@ function fetchUserAddr() {
 			lng: location.lng(),
 		};
 		
-		pointB = new google.maps.LatLng(
+		pointA = new google.maps.LatLng(
 			coordsInfo.lat,
 			coordsInfo.lng
 		);
@@ -71,4 +79,47 @@ function fetchUserAddr() {
 		map.setCenter(coordsInfo);
 	})
 	.catch(function(err) {coordInfo.innerHTML = err;});
+}
+
+function calcDist() {
+	var distKm = document.getElementById('distKm');
+	// var showTime = document.getElementById('showTime');
+	// var showRoute = document.getElementById('showRoute');
+	// 
+	var dist = google.maps.geometry.spherical.computeDistanceBetween(pointA,pointB);
+	distance = (dist/1000).toFixed(2) + 'km';
+	distKm.innerHTML = distance;
+	
+	// var directionsService = new google.maps.DirectionsService();
+	// directionsService.route(
+	// 	{
+	// 		origin: pointA,
+	// 		destination: pointB,
+	// 		travelMode: google.maps.DirectionsTravelMode.DRIVING,
+	// 		unitSystem: google.maps.UnitSystem.METRIC
+	// 	},
+	// function(response, status) {
+	// 	if (status === google.maps.DirectionsStatus.OK) {
+	// 		timeofTravel = response.routes[0].legs[0].duration.text;
+	// 		stepsofTravel = response.routes[0].legs[0].steps.map(function(step) {
+	// 			return {
+	// 				distance: step.distance.text,
+	// 				duration: step.duration.text,
+	// 				instructions: step.instructions
+	// 			};});		
+	// 
+	// 			var directionsRenderer = new google.maps.DirectionsRenderer({map: map, directions: response });
+	// 			showTime.innerHTML = timeofTravel;
+	// 
+	// 			var routeList = [];
+	// 			for (var i = 0; i < stepsofTravel.length; i++) {
+	// 				routeList.push(stepsofTravel[i].instructions);
+	// 				routeList.push('<br />')
+	// 			}
+	// 			showRoute.innerHTML = routeList;
+	// 		} else {
+	// 			console.log('Ouch');
+	// 		}
+	// 	}
+	// );
 }
