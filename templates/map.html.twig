@@ -10,12 +10,12 @@
 	<body>
 		<div id="map"></div>
 		
-		<h3>Locate First Address</h3>
+		<h3>Locate Your Address</h3>
 		<input id="addrA" type="text">
 		<button class="btn" id="btnCoordA" type="button"><span>Find</span></button>
 		<div id="coordInfoA"></div>	
 		
-		<h3>Locate Second Address</h3>
+		<h3>Locate Destination Address</h3>
 		<input id="addrB" type="text">
 		<button class="btn" id="btnCoordB" type="button"><span>Find</span></button>
 		<div id="coordInfoB"></div>	
@@ -30,6 +30,16 @@
 		<h3>Navigation Instruction</h3>
 		<div id="showRoute"></div>
 		
+		<h3>Add Info to database</h3>
+		<div>
+			<textarea id="userIntel" placeholder="Add information about your location"></textarea>
+			<br />
+			<button class="btn" id="btnUserIntel" type="button"><span>Send</span></button>
+			<br />
+			<div id="intelSentStat"></div>
+		</div>
+		
+		<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
 		<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJApn1weBvRmXgpTTvhkpbPrfUiXPkM8&callback=showMap&libraries=geometry" async defer>
 		</script>

@@ -1,3 +1,14 @@
+var config = {
+	apiKey: "AIzaSyDCMXtQ7wnVwYRugTLZl_V4jwhVkR47GZU",
+	authDomain: "mobile-course-bi-1519048093039.firebaseapp.com",
+	databaseURL: "https://mobile-course-bi-1519048093039.firebaseio.com",
+	projectId: "mobile-course-bi-1519048093039",
+	storageBucket: "mobile-course-bi-1519048093039.appspot.com",
+	messagingSenderId: "99726208798"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
 var btnCoordA = document.getElementById('btnCoordA');
 btnCoordA.addEventListener('click', fetchUserAddrA);
 
@@ -6,8 +17,14 @@ btnCoordB.addEventListener('click', fetchUserAddrB);
 
 var btnDistance = document.getElementById('btnDistance');
 btnDistance.addEventListener('click', calcDist);
+
+var btnUserIntel = document.getElementById('btnUserIntel');
+btnUserIntel.addEventListener('click', sendIntel);
+
 var pointA = null;
 var pointB = null;
+var userLat = null;
+var userLng = null;
 
 function showMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
@@ -69,8 +86,8 @@ function fetchUserAddrA() {
 		};
 		
 		pointA = new google.maps.LatLng(
-			coordsInfo.lat,
-			coordsInfo.lng
+			userLat = coordsInfo.lat,
+			userLng = coordsInfo.lng
 		);
 		
 		coordInfoA.innerHTML =
@@ -149,4 +166,19 @@ function calcDist() {
 			}
 		}
 	);
+}
+
+function sendIntel() {
+	var userIntel = document.getElementById('userIntel').value;
+	var intelSentStat = document.getElementById('intelSentStat');
+	
+	firebase.database().ref('/intel').push({
+		lat: userLat,
+		lng: userLng,
+		userIntel : userIntel
+	}).then(function(){
+		intelSentStat.innerHTML = 'Thanks for helping to update our databse';
+	}).catch(function(err) {
+		intelSentStat.innerHTML = 'We had problem updating database: ' + err.message;
+	});
 }
