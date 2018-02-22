@@ -12,8 +12,8 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/map.css') }}">
 	{% endblock %}
 	<script>
-	{% if allCoords is defined %}{% for AddrEntity in allCoords %}
 	var allCoords = [];
+	{% if allCoords is defined %}{% for AddrEntity in allCoords %}
 	allCoords.push({address: "{{ AddrEntity.address }}",lat: {{ AddrEntity.latitude }},lng: {{ AddrEntity.longitude }},changeIcon: "{{ AddrEntity.changeIcon }}",changeColor: "{{ AddrEntity.changeColor }}"});
 	{% endfor %}{% endif %}
 	</script>
@@ -21,7 +21,8 @@
 <body>
 </body>
 {% block body %}{% endblock %}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJApn1weBvRmXgpTTvhkpbPrfUiXPkM8&callback=showMap" async defer></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJApn1weBvRmXgpTTvhkpbPrfUiXPkM8&callback=showMap&libraries=geometry" async defer></script>
 <script src="{{ asset('assets/js/map.js') }}"></script>
 {% block javascripts %}{% endblock %}
 </html>

@@ -70,3 +70,4 @@ class MapController extends Controller
 	// https://symfony.com/doc/master/bundles/SensioGeneratorBundle/commands/generate_doctrine_entity.html
 	// https://symfony.com/doc/current/components/http_foundation.html
 	// https://straightupcraft.com/articles/testing-if-something-exists-is-defined-length-is-not-null-is-not-empty
+	// https://github.com/kreait/firebase-php
