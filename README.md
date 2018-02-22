@@ -3,7 +3,7 @@
 - Find Address 
 - Add info to database (Fireabase)
 - Fetch info from database 
-- Navigate and Driving instruction 
+- Calculating Distance, Navigate and Driving instruction 
 
 ### Screenshot
 
@@ -11,7 +11,6 @@
 
 ### How to
 
-Add your platform to Cordova
+`composer install`
 
-`composer isntall`
 `php -S 127.0.0.1:8000 -t public`
