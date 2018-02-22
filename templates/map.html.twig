@@ -1,27 +1,38 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <div id="map"></div>
-<h3>Locate Address</h3>
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
-<button class="btn" id="btnFetchIntel" type="button">Show Intel From Database</button>
-<h3>Add Info to database</h3>
-	<div>
-		<textarea id="userIntel" placeholder="Add information about your location"></textarea>
-		<button class="btn" id="btnUserIntel" type="button">Send</button>
-		<div id="intelSentStat"></div>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h3>Locate Address</h3>
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+			{{ form_end(form) }}
+		</div>
+		<div class="w-100"></div>
+		<div class="col">
+			<button class="btn" id="btnFetchIntel" type="button">Show Intel From Database</button>
+			<h4>Add Info to database</h4>
+			<div>
+				<textarea id="userIntel" placeholder="Add information about your location"></textarea>
+				<button class="btn" id="btnUserIntel" type="button">Send</button>
+				<div id="intelSentStat"></div>
+			</div>
+		</div>
+		<div class="col">
+			<h4>Calculate distance and Navigate</h4>
+			<p>
+				It navigates through the last 2 addresses you locate!
+			</p>
+			<button class="btn" id="btnDistance" type="button">Go!</button>
+			<br />
+			Distance: <div id="distKm"></div>
+			<br />
+			Travel Time: <div id="showTime"></div>
+			<br />
+			<h4>Navigation Instruction</h4>
+			<div id="showRoute"></div>
+		</div>
 	</div>
-	<h3>Calculate distance and Navigate</h3>
-	<p>
-		It navigates through the last 2 addresses you locate!
-	</p>
-		<button class="btn" id="btnDistance" type="button">Go!</button>
-		<br />
-		Distance: <div id="distKm"></div>
-		<br />
-		Travel Time: <div id="showTime"></div>
-		<br />
-		<h3>Navigation Instruction</h3>
-		<div id="showRoute"></div>
+</div>
 {% endblock %}
