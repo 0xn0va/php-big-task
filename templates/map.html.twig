@@ -5,4 +5,20 @@
 {{ form_start(form) }}
 {{ form_widget(form) }}
 {{ form_end(form) }}
+<button class="btn" id="btnFetchIntel" type="button">Show Intel From Database</button>
+<h3>Add Info to database</h3>
+	<div>
+		<textarea id="userIntel" placeholder="Add information about your location"></textarea>
+		<button class="btn" id="btnUserIntel" type="button">Send</button>
+		<div id="intelSentStat"></div>
+	</div>
+	<h3>Calculate distance and Navigate</h3>
+		<button class="btn" id="btnDistance" type="button"><span>Go!</span></button>
+		<br />
+		Distance: <div id="distKm"></div>
+		<br />
+		Travel Time: <div id="showTime"></div>
+		<br />
+		<h3>Navigation Instruction</h3>
+		<div id="showRoute"></div>
 {% endblock %}
