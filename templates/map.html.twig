@@ -1,50 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>Google Map Services</title>
-	{% block stylesheets %}
-	<link href="{{ asset('assets/css/map.css') }}" rel="stylesheet" />
-	{% endblock %}    </head>
-	<body>
-		<div id="map"></div>
-		
-		<h3>Locate Your Address</h3>
-		<input id="addrA" type="text">
-		<button class="btn" id="btnCoordA" type="button"><span>Find</span></button>
-		<div id="coordInfoA"></div>	
-		
-		<h3>Locate Destination Address</h3>
-		<input id="addrB" type="text">
-		<button class="btn" id="btnCoordB" type="button"><span>Find</span></button>
-		<div id="coordInfoB"></div>	
-		
-		<h3>Calculate distance and Navigate</h3>
-		<button class="btn" id="btnDistance" type="button"><span>Go!</span></button>
-		<br />
-		Distance: <div id="distKm"></div>		
-		<br />
-		Travel Time: <div id="showTime"></div>
-		<br />
-		<h3>Navigation Instruction</h3>
-		<div id="showRoute"></div>
-		
-		<h3>Add Info to database</h3>
-		<div>
-			<textarea id="userIntel" placeholder="Add information about your location"></textarea>
-			<br />
-			<button class="btn" id="btnUserIntel" type="button"><span>Send</span></button>
-			<br />
-			<div id="intelSentStat"></div>
-		</div>
-		
-		<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
-		<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJApn1weBvRmXgpTTvhkpbPrfUiXPkM8&callback=showMap&libraries=geometry" async defer>
-		</script>
-		{% block javascripts %}
-		<script src="{{ asset('assets/js/map.js') }}"></script>
-		{% endblock %}
-	</body>
-	</html>
+{% extends 'base.html.twig' %}
+{% block body %}
+<div id="map"></div>
+<h3>Locate Address</h3>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}

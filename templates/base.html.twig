@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy"
+	content="default-src * gap: ws: https://ssl.gstatic.com;style-src * 'unsafe-inline' 'self' data: blob:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;img-src * data: 'unsafe-inline' 'self'">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<title>{% block title %}PHP Course Big Exercise - Abdo{% endblock %}</title>
+	{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/map.css') }}">
+	{% endblock %}
+	<script>
+	{% if allCoords is defined %}{% for AddrEntity in allCoords %}
+	var allCoords = [];
+	allCoords.push({address: "{{ AddrEntity.address }}",lat: {{ AddrEntity.latitude }},lng: {{ AddrEntity.longitude }},changeIcon: "{{ AddrEntity.changeIcon }}",changeColor: "{{ AddrEntity.changeColor }}"});
+	{% endfor %}{% endif %}
+	</script>
+</head>
+<body>
+</body>
+{% block body %}{% endblock %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJApn1weBvRmXgpTTvhkpbPrfUiXPkM8&callback=showMap" async defer></script>
+<script src="{{ asset('assets/js/map.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</html>
